@@ -47,7 +47,7 @@ function gameScreen() {
 
 function keyPressed() {
   if (keyIsDown(32)) {
-    velocityY = velocityY - 0.5;
+    velocityY = velocityY - 0.8;
   }
 }
 
@@ -61,6 +61,7 @@ function resultScreenGameOver() {
   fill(250, 250, 250);
   textSize(32);
   text("You went to fast!", 350, 400);
+  text("Click to retry", 350, 450);
   pop();
 }
 
@@ -195,9 +196,10 @@ function bee(x, y) {
 
 function flower(flowerX, flowerY) {
   push();
-  fill(0, 255, 200);
+  stroke(25, 94, 30);
   strokeWeight(15);
   line(350, 500, 350, 700);
+  stroke(0);
   strokeWeight(1);
   translate(350, 500);
   fill(255, 192, 203);
