@@ -4,8 +4,8 @@ let flowerX = 0;
 let flowerY = 0;
 let state = "start";
 let beeWings = true;
-let velocityY = 0.2;
-let acceleration = 0.2;
+let velocityY = 0.5;
+let acceleration = 0.3;
 
 function setup() {
   createCanvas(700, 700);
