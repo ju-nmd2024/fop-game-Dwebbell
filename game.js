@@ -4,7 +4,7 @@ let flowerX = 0;
 let flowerY = 0;
 let state = "start";
 let velocityY = 0.5;
-let acceleration = 0.3;
+let acceleration = 0.4;
 
 function setup() {
   createCanvas(700, 700);
@@ -225,7 +225,7 @@ function flower(flowerX, flowerY) {
 
 function keyPressed() {
   if (keyIsDown(32)) {
-    velocityY = velocityY - 0.8;
+    velocityY = velocityY - 1;
   }
 }
 
@@ -243,11 +243,11 @@ function draw() {
     velocityY = velocityY + acceleration;
     keyPressed();
 
-    if (y * 0.3 > 440 && velocityY > 15) {
+    if (y * 0.3 > 440 && velocityY > 10) {
       state = "result";
       y = 200;
       velocityY = 0.3;
-    } else if (y * 0.3 > 440 && velocityY < 15) {
+    } else if (y * 0.3 > 440 && velocityY < 10) {
       state = "won";
       y = 200;
       velocityY = 0.3;
