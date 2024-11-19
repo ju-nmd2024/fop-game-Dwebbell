@@ -3,7 +3,6 @@ let y = 200;
 let flowerX = 0;
 let flowerY = 0;
 let state = "start";
-let beeWings = true;
 let velocityY = 0.5;
 let acceleration = 0.3;
 
@@ -20,6 +19,8 @@ function startScreen() {
   textSize(20);
   textAlign(CENTER);
   text("Help the bee land on the flower", 350, 200);
+  textSize(16);
+  text("Use Space to land safely", 350, 225);
   fill(255, 255, 255);
   text("Click to Start", 350, 320);
   pop();
@@ -43,12 +44,6 @@ function gameScreen() {
 
   flower(flowerX, flowerY);
   clouds();
-}
-
-function keyPressed() {
-  if (keyIsDown(32)) {
-    velocityY = velocityY - 0.8;
-  }
 }
 
 function resultScreenGameOver() {
@@ -75,6 +70,7 @@ function resultScreenWon() {
   fill(250, 250, 250);
   textSize(32);
   text("You helped the bee pollinate!", 350, 400);
+  text("Click to play again", 350, 450);
   pop();
 }
 
@@ -96,8 +92,6 @@ function clouds() {
 
 function bee(x, y) {
   //back wing
-  //Add push and pop around bee
-  //Translate to center of bee scale and then translate back
   push();
   translate(180, -200);
   strokeWeight(5);
@@ -206,10 +200,18 @@ function flower(flowerX, flowerY) {
   ellipse(0, -60, 90, 60);
   ellipse(-50, -50, 90, 60);
   ellipse(50, -50, 90, 60);
-  ellipse(-110, -20, 90, 60);
-  ellipse(110, -20, 90, 60);
+  ellipse(-95, -30, 90, 60);
+  ellipse(95, -30, 90, 60);
+  ellipse(-110, -10, 90, 60);
+  ellipse(110, -10, 90, 60);
   fill(250, 230, 100);
   ellipse(flowerX, flowerY, 250, 100);
+  fill(250, 190, 100);
+  ellipse(30, 10, 10);
+  ellipse(40, -30, 10);
+  ellipse(-40, 10, 10);
+  ellipse(-50, -15, 10);
+  ellipse(0, 0, 10);
   fill(255, 192, 203);
   ellipse(-120, 10, 90, 60);
   ellipse(-110, 30, 90, 60);
@@ -219,6 +221,12 @@ function flower(flowerX, flowerY) {
   ellipse(70, 50, 110, 60);
   ellipse(0, 60, 110, 60);
   pop();
+}
+
+function keyPressed() {
+  if (keyIsDown(32)) {
+    velocityY = velocityY - 0.8;
+  }
 }
 
 function draw() {
@@ -234,7 +242,6 @@ function draw() {
     y = y + velocityY;
     velocityY = velocityY + acceleration;
     keyPressed();
-    console.log(y * 0.3);
 
     if (y * 0.3 > 440 && velocityY > 15) {
       state = "result";
@@ -254,8 +261,6 @@ function draw() {
 
 function mouseClicked() {
   if (state === "start") {
-    state = "game";
-  } else if (state === "game") {
     state = "game";
   } else if (state === "result") {
     state = "game";
