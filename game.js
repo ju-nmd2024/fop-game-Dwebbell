@@ -87,6 +87,12 @@ function clouds() {
   ellipse(335, 210, 60, 30);
   ellipse(320, 220, 60, 30);
   ellipse(360, 220, 60, 30);
+  ellipse(165, 310, 60, 30);
+  ellipse(120, 320, 60, 30);
+  ellipse(160, 320, 60, 30);
+  ellipse(535, 355, 60, 30);
+  ellipse(520, 350, 60, 30);
+  ellipse(560, 345, 60, 30);
   pop();
 }
 
@@ -210,6 +216,7 @@ function flower(flowerX, flowerY) {
   ellipse(30, 10, 10);
   ellipse(40, -30, 10);
   ellipse(-40, 10, 10);
+  ellipse(-0, -30, 10);
   ellipse(-50, -15, 10);
   ellipse(0, 0, 10);
   fill(255, 192, 203);
