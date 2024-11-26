@@ -249,7 +249,8 @@ function draw() {
     y = y + velocityY;
     velocityY = velocityY + acceleration;
     keyPressed();
-
+    
+    //Paula teaching assistant helped with the velocity
     if (y * 0.3 > 440 && velocityY > 9) {
       state = "result";
       y = 200;
